@@ -42,7 +42,7 @@ const Cart = () => {
       <div className="flex-1 max-w-4xl">
         <h1 className="text-3xl font-medium mb-6">
           Shopping Cart{" "}
-          <span className="text-sm text-primary">{getCartCount} Items</span>
+          <span className="text-sm text-primary">{getCartCount()} Items</span>
         </h1>
 
         <div className="grid grid-cols-[2fr_1fr_1fr] text-gray-500 text-base font-medium pb-3">
@@ -120,7 +120,7 @@ const Cart = () => {
 
         <button
           onClick={() => {
-            navigate("/prodcuts");
+            navigate("/products");
             scrollTo(0, 0);
           }}
           className="group cursor-pointer flex items-center mt-8 gap-2 text-primary font-medium"
@@ -156,6 +156,7 @@ const Cart = () => {
               <div className="absolute top-12 py-1 bg-white border border-gray-300 text-sm w-full">
                 {addresses.map((address, index) => (
                   <p
+                    key={index}
                     onClick={() => {
                       setSelectedAddress(address);
                       setShowAddress(false);
@@ -194,7 +195,7 @@ const Cart = () => {
             <span>Price</span>
             <span>
               {currency}
-              {getCartAmount}
+              {getCartAmount()}
             </span>
           </p>
           <p className="flex justify-between">
@@ -212,7 +213,7 @@ const Cart = () => {
             <span>Total Amount:</span>
             <span>
               {currency}
-              {(getCartAmount() + getCartAmount() * 2) / 100}
+              {getCartAmount() + (getCartAmount() * 2) / 100}
             </span>
           </p>
         </div>

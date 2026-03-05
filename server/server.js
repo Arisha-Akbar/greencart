@@ -6,7 +6,7 @@ import "dotenv/config";
 const app = express();
 const port = process.env.PORT || 4000;
 
-await connectDB();
+connectDB();
 
 //allow multiple origins
 const allowedOrigins = ["http://localhost:5173"];

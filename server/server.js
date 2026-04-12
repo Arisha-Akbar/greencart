@@ -11,11 +11,12 @@ const port = process.env.PORT || 4000;
 
 import dotenv from "dotenv";
 import sellerRouter from "./routes/sellerRoute.js";
+import connectCloudinary from "./configs/cloudinary.js";
 dotenv.config();
 
-
-
 await connectDB();
+await connectCloudinary();
+
 
 //allow multiple origins
 const allowedOrigins = ["http://localhost:5173"];

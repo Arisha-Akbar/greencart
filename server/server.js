@@ -10,6 +10,7 @@ const port = process.env.PORT || 4000;
 
 
 import dotenv from "dotenv";
+import sellerRouter from "./routes/sellerRoute.js";
 dotenv.config();
 
 
@@ -26,6 +27,7 @@ app.use(cors({ origin: allowedOrigins, credentials: true }));
 
 app.get("/", (req, res) => res.send("API is working"));
 app.use("/api/user", userRouter);
+app.use("/api/seller", sellerRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

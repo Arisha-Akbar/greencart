@@ -1,11 +1,11 @@
 import express from "express";
-import authUser from "../middleware/authUser.js";
+import authUser from "../middlewares/authUser.js";
 import {
   getAllOrders,
   getUserOrders,
   placeOrderCOD,
-} from "../controllers/orderController";
-import authSeller from "../middleware/authSeller.js";
+} from "../controllers/orderController.js";
+import authSeller from "../middlewares/authSeller.js";
 
 const orderRouter = express.Router();
 

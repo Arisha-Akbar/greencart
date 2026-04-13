@@ -8,14 +8,13 @@ import userRouter from "./routes/userRoute.js";
 const app = express();
 const port = process.env.PORT || 4000;
 
-import dotenv from "dotenv";
 import sellerRouter from "./routes/sellerRoute.js";
 import connectCloudinary from "./configs/cloudinary.js";
 import productRouter from "./routes/productRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import addressRouter from "./routes/addressRoute.js";
 import orderRouter from "./routes/orderRoute.js";
-dotenv.config();
+
 
 await connectDB();
 await connectCloudinary();

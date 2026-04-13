@@ -1,4 +1,5 @@
 import { v2 as cloudinary } from "cloudinary";
+//import cloudinary from "../configs/cloudinary.js";
 import Product from "../models/Product.js";
 
 //add product /api/product/add
@@ -25,8 +26,6 @@ export const addProduct = async (req, res) => {
   }
 };
 
-
-
 //get product /api/product/list
 export const productList = async (req, res) => {
   try {
@@ -42,7 +41,8 @@ export const productList = async (req, res) => {
 export const productById = async (req, res) => {
   try {
     const { id } = req.body;
-    const products = await Product.findById({ id });
+    // const products = await Product.findById({ id });
+    const products = await Product.findById(id);
     res.json({ success: true, products });
   } catch (error) {
     console.log(error.message);

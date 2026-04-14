@@ -140,7 +140,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {open && (
         <div
-          className={`${open ? "flex" : "hidden"} absolute top-15 left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden`}
+          className={`${open ? "flex" : "hidden"} absolute top-full left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden z-50`}
         >
           <NavLink to="/" onClick={() => setOpen(false)}>
             Home

@@ -26,7 +26,7 @@ const MainBanner = () => {
           >
             Shop Now
             <img
-              className="md-hidden transition group-focus:translate-x-1"
+              className="md:hidden transition group-focus:translate-x-1"
               src={assets.white_arrow_icon}
               alt="arrow"
             />

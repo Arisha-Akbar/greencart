@@ -1,18 +1,18 @@
-// import multer from "multer";
-
-// export const upload = multer({ storage: multer.diskStorage({
-    
-// })})
-
 import multer from "multer";
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads"); // folder where images will be stored
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-});
+export const upload = multer({ storage: multer.diskStorage({
+    
+})})
 
-export const upload = multer({ storage });
+// import multer from "multer";
+
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "uploads"); // folder where images will be stored
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, Date.now() + "-" + file.originalname);
+//   },
+// });
+
+// export const upload = multer({ storage });

@@ -16,17 +16,16 @@ import addressRouter from "./routes/addressRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 import { stripeWebhooks } from "./controllers/orderController.js";
 
-
 await connectDB();
 await connectCloudinary();
 
-
-
 //allow multiple origins
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://greencart-xi-five.vercel.app",
+];
 
-
-app.post('/stripe', express.raw({ type: 'application/json' }), stripeWebhooks)
+app.post("/stripe", express.raw({ type: "application/json" }), stripeWebhooks);
 
 //middleware configuration
 app.use(express.json());

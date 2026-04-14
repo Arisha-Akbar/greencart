@@ -13,13 +13,13 @@ const ProductCard = ({ product }) => {
           navigate(
             `/products/${product.category.toLowerCase()}/${product._id}`,
           );
-          scrollTo(0, 0);
+          window.scrollTo({ top: 0, behavior: "smooth" })
         }}
-        className="border border-gray-500/20 rounded-md md:px-4 px-3 py-2 bg-white min-w-56 max-w-56 w-full"
+        className="border border-gray-500/20 rounded-md md:px-4 px-3 py-2 bg-white min-w-56 max-w-56 w-full max-w-xs mx-auto"
       >
         <div className="group cursor-pointer flex items-center justify-center px-2">
           <img
-            className="group-hover:scale-105 transition max-w-26 md:max-w-36"
+            className="group-hover:scale-105 transition max-w-26 md:max-w-36 h-auto object-contain"
             src={product.image[0]}
             alt={product.name}
           />
@@ -35,7 +35,7 @@ const ProductCard = ({ product }) => {
               .map((_, i) => (
                 <img
                   key={i}
-                  className="md:w-3.5 w3"
+                  className="md:w-3.5 w-3"
                   src={i < 4 ? assets.star_icon : assets.star_dull_icon}
                   alt=""
                 />
@@ -55,11 +55,11 @@ const ProductCard = ({ product }) => {
               onClick={(e) => {
                 e.stopPropagation();
               }}
-              className="text-primary"
+              className="text-primary shrink-0"
             >
               {!cartItems[product._id] ? (
                 <button
-                  className="flex items-center justify-center gap-1 bg-primary/10 border border-primary/40 md:w-20 w-16 h-8.5 rounded cursor-pointer"
+                  className="flex items-center justify-center gap-1 bg-primary/10 border border-primary/40 md:w-20 h-8.5 rounded w-full cursor-pointer text-xs md:text-sm"
                   onClick={() => addToCart(product._id)}
                 >
                   <img src={assets.cart_icon} alt="cart_icon" />

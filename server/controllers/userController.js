@@ -93,7 +93,7 @@ export const isAuth = async (req, res) => {
     // const { userId } = req.userId;
 
     // const user = await User.findById(userId).select("-password");
-    const user = await User.findById(req.userId).select("-password"); 
+    const user = await User.findById(req.userId).select("-password");
     return res.json({ success: true, user });
   } catch (error) {
     console.log(error.message);
@@ -113,6 +113,20 @@ export const logout = async (req, res) => {
     return res.json({ success: true, message: "Logged out" });
   } catch (error) {
     console.log(error.message);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+export const updateUserCart = async (req, res) => {
+  try {
+    const { cartItems } = req.body;
+    const userId = req.userId; // From authUser middleware
+
+    await User.findByIdAndUpdate(userId, { cartItems });
+
+    res.json({ success: true, message: "Cart updated successfully" });
+  } catch (error) {
+    console.error("Update cart error:", error);
     res.json({ success: false, message: error.message });
   }
 };

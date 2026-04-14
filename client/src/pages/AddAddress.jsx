@@ -24,7 +24,7 @@ const AddAddress = () => {
     street: "",
     city: "",
     state: "",
-    zipCode: "",
+    zipcode: "",
     country: "",
     phone: "",
   });
@@ -32,16 +32,20 @@ const AddAddress = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setAddress(() => ({
+    setAddress((prevAddress) => ({
       ...prevAddress,
       [name]: value,
     }));
+    console.log(address);
   };
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/address/add", { address });
+      const { data } = await axios.post("/api/address/add", {
+        address,
+        userId: user._id,
+      });
       if (data.success) {
         toast.success(data.message);
         navigate("/cart");
@@ -57,7 +61,7 @@ const AddAddress = () => {
     if (!user) {
       navigate("/cart");
     }
-  }, []);
+  }, [user, navigate]);
 
   return (
     <div className="mt-16 pb-16">
@@ -140,7 +144,7 @@ const AddAddress = () => {
               type="text"
               placeholder="Phone"
             />
-            <button className="w-full mt-6 bg-primary text-white py-3 hover:bg-primary-dull transition curser-pointer uppercase">
+            <button className="w-full mt-6 bg-primary text-white py-3 hover:bg-primary-dull transition cursor-pointer uppercase">
               Save Address
             </button>
           </form>
